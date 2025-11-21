@@ -28,10 +28,6 @@
     }
   },
   "assist": {
-    "actions": {
-      "source": {
-        "organizeImports": "on"
-      }
-    }
+    "actions": {}
   }
 }
