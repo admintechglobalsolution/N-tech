@@ -1,7 +1,6 @@
 import type { Metadata } from 'next';
 import { Roboto, Roboto_Mono } from 'next/font/google';
 import { Toaster } from 'sonner';
-// @ts-expect-error: CSS module declarations are not present in this project
 import './globals.css';
 
 import { ThemeProvider } from '@/components/ThemeProvider';
