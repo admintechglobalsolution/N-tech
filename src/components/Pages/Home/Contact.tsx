@@ -1,10 +1,12 @@
 'use client';
 
-import { Globe, Mail, MapPin, Phone } from 'lucide-react';
+//icons
 import { motion } from 'motion/react';
-
+import { FaGlobe, FaMapMarkedAlt } from 'react-icons/fa';
+import { FaEnvelope, FaPhoneVolume } from 'react-icons/fa6';
+//custom components
 import LottiePlayer from '@/components/LottiePlayer';
-import { Button } from '@/components/ui/button';
+//shadcn
 import { Card } from '@/components/ui/card';
 
 // Animation variants
@@ -24,25 +26,25 @@ const staggerParent = {
 const Contact = () => {
   const contactInfo = [
     {
-      icon: Phone,
+      icon: FaPhoneVolume,
       label: 'Phone',
       value: '+91 9346622679',
       href: 'tel:+919346622679',
     },
     {
-      icon: Mail,
+      icon: FaEnvelope,
       label: 'Email',
       value: 'admin@ntechglobalsolution.com',
       href: 'mailto:admin@ntechglobalsolution.com',
     },
     {
-      icon: Globe,
+      icon: FaGlobe,
       label: 'Website',
       value: 'www.ntechglobalsolution.com',
       href: 'https://ntechglobalsolution.com',
     },
     {
-      icon: MapPin,
+      icon: FaMapMarkedAlt,
       label: 'Location',
       value: 'Bangalore, Karnataka, India',
       href: '#',
@@ -50,21 +52,25 @@ const Contact = () => {
   ];
 
   return (
-    <section id="contact" className="py-20 md:py-32">
+    <section id="contact" className="py-10 md:py-20 xl:px-10 xl:py-32">
       <div className="container mx-auto px-4">
         {/* Title */}
         <motion.div
-          className="mb-16 text-center"
+          className="mb-4 text-start"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, ease: 'easeOut' }}
           viewport={{ once: true }}
         >
-          <h2 className="mb-4 text-3xl font-bold md:text-4xl lg:text-5xl">
-            Get in <span className="text-primary">Touch</span>
+          <h2 className="mb-4 text-2xl font-bold md:text-3xl lg:text-4xl">
+            GET IN <span className="text-primary">TOUCH</span>
           </h2>
+          <div className="mb-4 flex h-1 w-full gap-2">
+            <div className="h-1 w-10 bg-blue-800"></div>
+            <div className="h-1 w-5 bg-yellow-400"></div>
+          </div>
           <motion.p
-            className="text-muted-foreground mx-auto max-w-2xl text-lg"
+            className="text-muted-foreground md:text-md max-w-2xl text-start text-sm xl:text-lg"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             transition={{ delay: 0.2, duration: 0.7 }}
@@ -75,7 +81,7 @@ const Contact = () => {
         </motion.div>
 
         {/* Grid */}
-        <div className="mx-auto grid max-w-5xl items-center gap-12 md:grid-cols-2">
+        <div className="grid items-center md:grid-cols-2">
           {/* Contact Info Cards with stagger */}
           <motion.div
             className="space-y-6"
@@ -84,9 +90,9 @@ const Contact = () => {
             whileInView="whileInView"
             viewport={{ once: false }}
           >
-            {contactInfo.map((info, i) => (
+            {contactInfo.map((info) => (
               <motion.div key={info.label} variants={fadeInUp}>
-                <Card className="hover:shadow-medium transition-smooth shadow-soft bg-card group border-0 p-6">
+                <Card className="transition-smooth group border-0 p-6 pl-0 shadow-none">
                   <a
                     href={info.href}
                     className="flex items-center gap-4"
@@ -97,8 +103,8 @@ const Contact = () => {
                         : undefined
                     }
                   >
-                    <div className="gradient-primary transition-smooth flex h-12 w-12 shrink-0 items-center justify-center rounded-xl group-hover:scale-110">
-                      <info.icon className="text-primary-foreground h-6 w-6" />
+                    <div className="bg-primary-foreground transition-smooth flex h-12 w-12 shrink-0 items-center justify-center rounded-xl group-hover:scale-110">
+                      <info.icon className="h-6 w-6 text-blue-800" />
                     </div>
                     <div>
                       <p className="text-muted-foreground mb-1 text-sm">
@@ -123,18 +129,6 @@ const Contact = () => {
             viewport={{ once: false }}
           >
             <LottiePlayer src="/Welcome.lottie" loop autoplay />
-
-            {/* <motion.div
-              className="mt-8 text-center"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2, duration: 0.7 }}
-              viewport={{ once: false }}
-            >
-              <Button size="lg" className="gradient-primary">
-                Schedule a Consultation
-              </Button>
-            </motion.div> */}
           </motion.div>
         </div>
       </div>

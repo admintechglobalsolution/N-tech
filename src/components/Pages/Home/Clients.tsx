@@ -16,7 +16,7 @@ export const Clients = () => {
   const logos = [...companies, ...companies];
 
   return (
-    <section id="clients" className="py-20 md:py-32">
+    <section id="clients" className="py-10 md:py-20 xl:px-10 xl:py-32">
       <div className="relative flex w-full flex-col items-center gap-10 overflow-x-hidden px-6">
         {/* Title Animation */}
         <motion.div
