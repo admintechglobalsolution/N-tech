@@ -3,20 +3,22 @@
 import { motion } from 'motion/react';
 import Image from 'next/image';
 
-export const Clients = () => {
-  const companies = [
-    { id: 'infotek', logo: '/assets/companies/aa.svg' },
-    { id: 'alba', logo: '/assets/companies/alba.svg' },
-    { id: 'ce', logo: '/assets/companies/ce.svg' },
-    { id: 'be', logo: '/assets/companies/be.svg' },
-    { id: 'vibhu', logo: '/assets/companies/vibhu.svg' },
-  ];
+//companies data
+const companies = [
+  { id: 'infotek', logo: '/assets/companies/aa.svg' },
+  { id: 'alba', logo: '/assets/companies/alba.svg' },
+  { id: 'ce', logo: '/assets/companies/ce.svg' },
+  { id: 'be', logo: '/assets/companies/be.svg' },
+  { id: 'vibhu', logo: '/assets/companies/vibhu.svg' },
+];
 
+//Main Clients Component
+export const Clients = () => {
   // Duplicate array for smooth infinite loop
   const logos = [...companies, ...companies];
 
   return (
-    <section id="clients" className="py-20 md:py-32">
+    <section id="clients" className="py-10 md:py-20 xl:px-10 xl:py-32">
       <div className="relative flex w-full flex-col items-center gap-10 overflow-x-hidden px-6">
         {/* Title Animation */}
         <motion.div

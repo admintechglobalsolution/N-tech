@@ -3,14 +3,21 @@
 ---------------------------- */
 @import 'tailwindcss';
 @import 'tw-animate-css';
+@import '../styles/TriangleAnim.css';
+@import '../styles/GridAnim.css';
 
 /* Enable dark mode using class */
 @custom-variant dark (&:is(.dark *));
+
+@theme {
+  --text-tiny: 0.6rem;
+}
 
 /* ---------------------------
    THEME TOKENS (Lovable + shadcn)
    All colors use HSL notation
 ---------------------------- */
+
 @theme inline {
   /* Tailwind v4 color tokens mapped to CSS vars */
   --color-background: var(--background);
@@ -143,7 +150,7 @@
 ---------------------------- */
 .dark {
   /* Base surfaces */
-  --background: oklch(0.208 0.015 264.187);
+  --background: oklch(0% 0 0);
   --foreground: oklch(0.962 0 89.876);
 
   --card: oklch(0.228 0.017 264.155);
@@ -351,4 +358,8 @@
 .custom-scrollbar {
   scrollbar-width: thin;
   scrollbar-color: #ccc transparent;
+}
+
+.magneto {
+  font-family: var(--font-magneto);
 }

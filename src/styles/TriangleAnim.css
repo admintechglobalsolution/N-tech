@@ -1,0 +1,74 @@
+/* ------- SMALL TRIANGLE VERSION ------- */
+
+.dot-overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.dot {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  background: rgba(0, 0, 0, 0.8);
+  border-radius: 50%;
+}
+
+/* Smaller triangle vertices (closer together) */
+.d1 {
+  top: 10%;
+  left: 50%;
+  transform: translate(-50%, 0);
+  background: oklch(85.368% 0.08384 78.722);
+}
+.d2 {
+  bottom: 15%;
+  left: 30%;
+  transform: translate(-50%, 0);
+  background: oklch(0.78 0.1 200);
+}
+.d3 {
+  bottom: 15%;
+  right: 30%;
+  transform: translate(50%, 0);
+  background: oklch(80.514% 0.10957 324.403);
+}
+
+/* Animation speeds (you can change these) */
+.d1 {
+  animation: inward1 1s ease-in-out infinite alternate;
+}
+.d2 {
+  animation: inward2 1.2s ease-in-out infinite alternate;
+}
+.d3 {
+  animation: inward3 2.2s ease-in-out infinite alternate;
+}
+
+/* Smaller inward oscillation distances */
+@keyframes inward1 {
+  from {
+    transform: translate(-50%, 0);
+  }
+  to {
+    transform: translate(calc(-50% + 6px), 8px);
+  }
+}
+
+@keyframes inward2 {
+  from {
+    transform: translate(-50%, 0);
+  }
+  to {
+    transform: translate(calc(-50% + 8px), -6px);
+  }
+}
+
+@keyframes inward3 {
+  from {
+    transform: translate(50%, 0);
+  }
+  to {
+    transform: translate(calc(50% - 8px), -6px);
+  }
+}

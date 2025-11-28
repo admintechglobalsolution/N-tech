@@ -1,0 +1,113 @@
+/* Animated grid background */
+@keyframes gridMove {
+  0% {
+    background-position: 0px 0px;
+  }
+  100% {
+    background-position: 200% 200%;
+  }
+}
+
+.animate-grid-move {
+  animation: gridMove 20s linear infinite;
+}
+
+/* Fade In / Out */
+@keyframes gridFadePulse {
+  0% {
+    opacity: 0.25;
+  }
+  50% {
+    opacity: 0.6;
+  }
+  100% {
+    opacity: 0.25;
+  }
+}
+
+.animate-grid-fade {
+  animation: gridFadePulse 10s ease-in-out infinite;
+}
+
+/* Parallax Wave */
+@keyframes gridParallaxWave {
+  0% {
+    transform: scale(1);
+    opacity: 0.35;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 0.55;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0.35;
+  }
+}
+
+.animate-grid-wave {
+  animation: gridParallaxWave 12s ease-in-out infinite;
+}
+
+/* Diagonal Drift */
+@keyframes gridDiagonalDrift {
+  0% {
+    background-position: 0% 0%;
+  }
+  100% {
+    background-position: 200% 200%;
+  }
+}
+
+.animate-grid-drift {
+  animation: gridDiagonalDrift 25s linear infinite;
+}
+@keyframes gridDiagonalDriftDark {
+  0% {
+    background-position: 0% 0%;
+  }
+  100% {
+    background-position: 180% 180%;
+  }
+}
+
+.dark .animate-grid-drift-dark {
+  animation: gridDiagonalDriftDark 32s linear infinite;
+  opacity: 0.18; /* lower for dark mode */
+  filter: brightness(0.8) contrast(1.1);
+}
+
+@keyframes gridParallaxWaveDark {
+  0% {
+    transform: scale(1);
+    opacity: 0.18;
+  }
+  50% {
+    transform: scale(1.03);
+    opacity: 0.32;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0.18;
+  }
+}
+
+.dark .animate-grid-wave-dark {
+  animation: gridParallaxWaveDark 14s ease-in-out infinite;
+}
+
+@keyframes gridFadePulseDark {
+  0% {
+    opacity: 0.12;
+  }
+  50% {
+    opacity: 0.25;
+  }
+  100% {
+    opacity: 0.12;
+  }
+}
+
+.dark .animate-grid-fade-dark {
+  animation: gridFadePulseDark 12s ease-in-out infinite;
+}
