@@ -1,36 +1,147 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# ✨ N‑tech — Global Solutions
 
-## Getting Started
+A polished, modern, and performance‑focused landing page built with **Next.js (App Router)** and **TypeScript** — featuring smooth Lottie animations, accessibility‑first UI, and a secure contact form with server validation.
 
-First, run the development server:
+Whether you’re developing locally, deploying to the cloud, or reviewing code structure, this guide will help you get up and running instantly.
+
+---
+
+## 🚀 Tech Stack & Highlights
+
+> Optimized for performance, accessibility, and clean developer experience
+
+- ⚡ **Next.js + TypeScript**
+- 🎨 UI with **Tailwind CSS + Radix + CVA**
+- 🎞 Smooth **Lottie animations**
+- 🌓 **Theming** — light & dark mode support
+- 📬 **Contact API** — validation via **Zod**, rate‑limited & email sending with **Nodemailer**
+- 🧹 Code quality: **Biome** (linting/formatting)
+
+---
+
+## 📦 Getting Started
+
+### Prerequisites
+
+- Node.js **18+**
+- `pnpm` (recommended) or `npm`
+
+### Install dependencies
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+pnpm install
+# or npm install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Run in development
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+pnpm dev
+# or npm run dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Open: http://localhost:3000
 
-## Learn More
+### Build & preview production
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+pnpm build
+pnpm start
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 🔧 Package Scripts
 
-## Deploy on Vercel
+| Script   | Description                  |
+| -------- | ---------------------------- |
+| `dev`    | Run local development server |
+| `build`  | Compile production build     |
+| `start`  | Serve compiled build         |
+| `lint`   | Run Biome checks             |
+| `format` | Auto‑format using Biome      |
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Use via `pnpm run <script>` or `npm run <script>`.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+
+## 🧩 Architecture Overview
+
+```
+src/
+├─ app/          # Pages & layouts (App Router)
+├─ components/   # UI blocks: Hero, Navbar, Footer, Lottie, Forms...
+├─ lib/          # Utilities, validation, rate‑limiter, email helpers
+└─ api/contact/  # Contact form API route (server only)
+```
+
+- Contact form uses **Zod** for safe parsing
+- Simple in‑memory **sliding‑window rate limiter** (5 req/min)
+- Emails delivered via **Nodemailer**
+
+---
+
+## ⚙️ Environment Variables
+
+To enable email sending, create `.env.local`:
+
+```env
+SMTP_HOST=smtp.example.com
+SMTP_PORT=587
+SMTP_USER=you@example.com
+SMTP_PASS=super-secret-password
+```
+
+If omitted, `/api/contact` will return a helpful **500** response.
+
+---
+
+## 🧪 Code Quality
+
+```bash
+pnpm lint     # static analysis
+pnpm format   # auto-format
+```
+
+Biome ensures consistent style and fast CI checks.
+
+---
+
+## 📤 Deployment
+
+Best deployed on **Vercel** — just set the required env variables for email.
+Alternative deployments supported anywhere with Node.js.
+
+---
+
+## 🤝 Contributing
+
+Contributions are welcome! 🚀
+
+1. Fork → create a feature branch
+2. Build cool features / fix issues
+3. Submit a PR with details
+
+Open an issue for discussions, questions, or improvements.
+
+---
+
+## 📬 Contact
+
+By default, contact form messages are sent to:
+
+```
+admin@ntechglobalsolutions.com
+```
+
+Have ideas? Collaboration? Open an issue — we’d love to hear from you!
+
+---
+
+## 📜 License
+
+No license included yet. Add one (e.g., MIT) if you plan to open‑source.
+
+---
+
+✨ Thanks for exploring N‑tech!
