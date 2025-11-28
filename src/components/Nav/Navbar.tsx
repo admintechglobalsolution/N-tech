@@ -17,37 +17,33 @@ const Navigation = () => {
   ];
 
   return (
-    <nav className="bg-background/95 border-border shadow-soft fixed top-0 right-0 left-0 z-50 border-b px-10 backdrop-blur-sm">
+    <nav className="bg-background/95 border-border shadow-soft fixed top-0 right-0 left-0 z-50 border-b px-10 backdrop-blur-sm max-w-screen">
       <div className="container mx-auto px-4">
-        <div className="flex h-16 items-center justify-between md:h-20">
+        <div className="flex h-10 items-center justify-between md:h-15">
           {/* Logo */}
           <a
             href="#home"
-            className="text-primary transition-smooth hover:text-primary-light text-2xl font-bold md:text-3xl"
+            className="text-primary magneto transition-smooth hover:text-primary-light text-2xl font-bold md:text-3xl"
           >
             N-tech
           </a>
 
-          {/* Desktop Navigation */}
-          <div className="hidden items-center gap-8 md:flex">
-            {navLinks.map((link) => (
-              <a
-                key={link.name}
-                href={link.href}
-                className="text-foreground hover:text-primary transition-smooth font-medium"
-              >
-                {link.name}
-              </a>
-            ))}
-            {/* <Button className="gradient-primary">Get Started</Button> */}
-          </div>
+          {/* Right side: nav links (desktop), mode toggle, hamburger */}
+          <div className="flex items-center gap-6">
+            <div className="hidden items-center gap-8 md:flex">
+              {navLinks.map((link) => (
+                <a
+                  key={link.name}
+                  href={link.href}
+                  className="text-foreground hover:text-primary transition-smooth font-medium"
+                >
+                  {link.name}
+                </a>
+              ))}
+            </div>
 
-          {/* Right side controls */}
-          <div className="flex items-center gap-4">
-            {/* ModeToggle ALWAYS visible */}
             <ModeToggle />
 
-            {/* Mobile menu button (hidden on desktop) */}
             <button
               className="text-foreground hover:text-primary transition-smooth md:hidden"
               onClick={() => setIsOpen(!isOpen)}

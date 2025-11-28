@@ -1,8 +1,12 @@
 'use client';
+//DO MORE WITH US section
+
 import { motion } from 'motion/react';
 import Image from 'next/image';
+//shadcn Imports
 import { Card } from '@/components/ui/card';
 
+//animation variants
 const fadeIn = {
   hidden: { opacity: 0, y: 20 },
   show: (delay = 0) => ({
@@ -12,36 +16,40 @@ const fadeIn = {
   }),
 };
 
-const Features = () => {
-  const features = [
-    {
-      icon: '/assets/services-idea.svg',
-      title: 'Creative Concepts',
-      description:
-        'We will listen to reach out your goals regardless of what you sell. Based on that, we introduce more creative ideas for perfective work.',
-    },
-    {
-      icon: '/assets/girl.svg',
-      title: 'Testing for Perfection',
-      description:
-        'We deal individually with each project. Our design is sharp, clean, and we make sure that it is 99.9% error-free.',
-    },
-    {
-      icon: '/assets/services-p-boy.svg',
-      title: 'Innovative Solutions',
-      description:
-        'N-tech has the best team who is qualified and certified. They are well experienced by providing accurate and timely work.',
-    },
-    {
-      icon: '/assets/cup.jpg',
-      title: 'We are the Best',
-      description:
-        'We proudly say that we are One of the top IT Support and Service Providers with over 100+ employees team work is our key to success.',
-    },
-  ];
+//Main Component
+const features = [
+  {
+    icon: '/assets/features/services-idea.svg',
+    title: 'Creative Concepts',
+    description:
+      'We will listen to reach out your goals regardless of what you sell. Based on that, we introduce more creative ideas for perfective work.',
+  },
+  {
+    icon: '/assets/features/girl.svg',
+    title: 'Testing for Perfection',
+    description:
+      'We deal individually with each project. Our design is sharp, clean, and we make sure that it is 99.9% error-free.',
+  },
+  {
+    icon: '/assets/features/services-p-boy.svg',
+    title: 'Innovative Solutions',
+    description:
+      'N-tech has the best team who is qualified and certified. They are well experienced by providing accurate and timely work.',
+  },
+  {
+    icon: '/assets/features/trophy.svg',
+    title: 'We are the Best',
+    description:
+      'We proudly say that we are One of the top IT Support and Service Providers with over 100+ employees team work is our key to success.',
+  },
+];
 
+const Features = () => {
   return (
-    <section id="about" className="bg-secondary/50 py-20 md:py-32">
+    <section
+      id="about"
+      className="bg-secondary/50 py-10 md:py-20 xl:px-10 xl:py-32"
+    >
       <div className="container mx-auto px-4">
         {/* Title Animation */}
         <motion.div
@@ -51,11 +59,11 @@ const Features = () => {
           transition={{ duration: 0.7, ease: 'easeOut' }}
           viewport={{ once: true }}
         >
-          <h2 className="mb-4 text-3xl font-bold md:text-4xl lg:text-5xl">
-            Do More With <span className="text-primary">Us</span>
+          <h2 className="mb-4 text-2xl font-bold md:text-3xl lg:text-4xl">
+            DO MORE WITH <span className="text-primary">US</span>
           </h2>
           <motion.p
-            className="text-muted-foreground mx-auto max-w-2xl text-lg"
+            className="text-muted-foreground mx-auto text-sm md:text-lg"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             transition={{ delay: 0.2, duration: 0.7 }}
@@ -85,7 +93,7 @@ const Features = () => {
             <motion.div key={feature.title} variants={fadeIn}>
               <Card className="hover:shadow-large transition-smooth shadow-soft bg-card group border-0 p-6 hover:-translate-y-2">
                 <div className="flex items-start gap-4">
-                  <div className="shrink-0">
+                  <div className="relative shrink-0">
                     <Image
                       src={feature.icon}
                       alt={feature.title}
@@ -93,12 +101,18 @@ const Features = () => {
                       height={80}
                       className="object-contain"
                     />
+                    {/* Dot animation overlay */}
+                    <div className="dot-overlay">
+                      <span className="dot d1"></span>
+                      <span className="dot d2"></span>
+                      <span className="dot d3"></span>
+                    </div>
                   </div>
                   <div>
-                    <h3 className="mb-2 text-xl font-semibold">
+                    <h3 className="mb-2 text-base font-semibold md:text-lg lg:text-xl">
                       {feature.title}
                     </h3>
-                    <p className="text-muted-foreground text-sm leading-relaxed">
+                    <p className="text-muted-foreground text-tiny leading-relaxed md:text-sm">
                       {feature.description}
                     </p>
                   </div>
