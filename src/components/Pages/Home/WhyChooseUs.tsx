@@ -1,7 +1,8 @@
 'use client';
+//WHY CHOOSE US SECTION
 
-import LottiePlayer from '@/components/LottiePlayer';
 import { motion } from 'motion/react';
+//icon imports
 import {
   FaFortAwesome,
   FaHandHoldingUsd,
@@ -9,7 +10,10 @@ import {
   FaShieldAlt,
 } from 'react-icons/fa';
 import { FaHeadset, FaMedal } from 'react-icons/fa6';
+//lottie Player
+import LottiePlayer from '@/components/LottiePlayer';
 
+//Animation variants
 const fadeIn = {
   hidden: { opacity: 0, y: 20 },
   show: (delay = 0) => ({
@@ -28,6 +32,7 @@ const staggerParent = {
   },
 };
 
+//Main Component
 const WhyChooseUs = () => {
   const reasons = [
     { id: 1, icon: FaFortAwesome, text: '8+ Years Of Experience' },

@@ -1,13 +1,10 @@
 'use client';
 
-//icons
 import { motion } from 'motion/react';
 import { FaGlobe, FaMapMarkedAlt } from 'react-icons/fa';
 import { FaEnvelope, FaPhoneVolume } from 'react-icons/fa6';
-//custom components
-import LottiePlayer from '@/components/LottiePlayer';
-//shadcn
-import { Card } from '@/components/ui/card';
+//icons
+import AnimatedContactForm from '@/components/Pages/Home/Contact-Form';
 
 // Animation variants
 const fadeInUp = {
@@ -53,7 +50,7 @@ const Contact = () => {
 
   return (
     <section id="contact" className="py-10 md:py-20 xl:px-10 xl:py-32">
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto flex flex-col items-center justify-between gap-10 px-4 md:flex-row md:px-0 xl:justify-around xl:px-4">
         {/* Title */}
         <motion.div
           className="mb-4 text-start"
@@ -62,7 +59,7 @@ const Contact = () => {
           transition={{ duration: 0.7, ease: 'easeOut' }}
           viewport={{ once: true }}
         >
-          <h2 className="mb-4 text-2xl font-bold md:text-3xl lg:text-4xl">
+          <h2 className="text-2xl font-bold md:text-3xl lg:text-4xl">
             GET IN <span className="text-primary">TOUCH</span>
           </h2>
           <div className="mb-4 flex h-1 w-full gap-2">
@@ -70,7 +67,7 @@ const Contact = () => {
             <div className="h-1 w-5 bg-yellow-400"></div>
           </div>
           <motion.p
-            className="text-muted-foreground md:text-md max-w-2xl text-start text-sm xl:text-lg"
+            className="text-muted-foreground max-w-2xl text-start text-sm md:text-base xl:text-lg"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             transition={{ delay: 0.2, duration: 0.7 }}
@@ -78,24 +75,33 @@ const Contact = () => {
           >
             Ready to transform your business? Contact us today
           </motion.p>
-        </motion.div>
 
-        {/* Grid */}
-        <div className="grid items-center md:grid-cols-2">
-          {/* Contact Info Cards with stagger */}
-          <motion.div
-            className="space-y-6"
-            variants={staggerParent}
-            initial="initial"
-            whileInView="whileInView"
-            viewport={{ once: false }}
-          >
-            {contactInfo.map((info) => (
-              <motion.div key={info.label} variants={fadeInUp}>
-                <Card className="transition-smooth group border-0 p-6 pl-0 shadow-none">
+          {/* Grid */}
+          <div className="relative grid items-start">
+            <motion.div
+              className="bg-chart-4/5 dark:bg-chart-4/10 absolute -left-10 -z-10 size-64 rounded-full blur-2xl dark:size-108"
+              initial={{ opacity: 0, y: 0 }}
+              animate={{ opacity: 1, y: [0, 10, 0] }}
+              transition={{
+                duration: 6,
+                repeat: Infinity,
+                repeatType: 'reverse',
+                ease: 'easeInOut',
+              }}
+            />
+            {/* Contact Info Cards with stagger */}
+            <motion.div
+              className="mt-5 grid grid-cols-1 space-y-10 sm:mt-18 sm:grid-cols-2 md:grid-cols-1"
+              variants={staggerParent}
+              initial="initial"
+              whileInView="whileInView"
+              viewport={{ once: false }}
+            >
+              {contactInfo.map((info) => (
+                <motion.div key={info.label} variants={fadeInUp}>
                   <a
                     href={info.href}
-                    className="flex items-center gap-4"
+                    className="transition-smooth group flex w-fit items-center gap-4"
                     target={info.label === 'Website' ? '_blank' : undefined}
                     rel={
                       info.label === 'Website'
@@ -103,8 +109,8 @@ const Contact = () => {
                         : undefined
                     }
                   >
-                    <div className="bg-primary-foreground transition-smooth flex h-12 w-12 shrink-0 items-center justify-center rounded-xl group-hover:scale-110">
-                      <info.icon className="h-6 w-6 text-blue-800" />
+                    <div className="transition-smooth flex size-8 shrink-0 items-center justify-center rounded-lg group-hover:scale-110 md:size-10 md:rounded-xl">
+                      <info.icon className="text-primary size-3 md:size-5" />
                     </div>
                     <div>
                       <p className="text-muted-foreground mb-1 text-sm">
@@ -115,22 +121,13 @@ const Contact = () => {
                       </p>
                     </div>
                   </a>
-                </Card>
-              </motion.div>
-            ))}
-          </motion.div>
-
-          {/* Lottie Animation */}
-          <motion.div
-            className="relative"
-            initial={{ opacity: 0, scale: 0.85 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, ease: 'easeOut' }}
-            viewport={{ once: false }}
-          >
-            <LottiePlayer src="/Welcome.lottie" loop autoplay />
-          </motion.div>
-        </div>
+                </motion.div>
+              ))}
+            </motion.div>
+          </div>
+        </motion.div>
+        {/* Animated Contact Form Component */}
+        <AnimatedContactForm />
       </div>
     </section>
   );

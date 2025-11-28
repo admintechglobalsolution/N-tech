@@ -1,12 +1,17 @@
 'use client';
+//HERO SECTION OF THE LANDING PAGE
 
+//icon imports
 import { ArrowRight, ChevronDown } from 'lucide-react';
+//motion imports
 import { motion, useMotionValue, useSpring } from 'motion/react';
 import Image from 'next/image';
-import { useEffect, useState } from 'react';
+//React
+import { type MouseEvent, useEffect, useState } from 'react';
 //shadcn-ui
 import { Button } from '@/components/ui/button';
 
+//Main Component
 const Hero = () => {
   // Typewriter text
   const phrases = [
@@ -34,16 +39,14 @@ const Hero = () => {
     return () => clearTimeout(timeout);
   }, [subIndex, index]);
 
-  // ==============================
   // MOUSE-FOLLOW PARALLAX FOR IMAGE
-  // ==============================
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
 
   const springX = useSpring(mouseX, { stiffness: 50, damping: 20 });
   const springY = useSpring(mouseY, { stiffness: 50, damping: 20 });
 
-  const handleMouseMove = (e: any) => {
+  const handleMouseMove = (e: MouseEvent<HTMLElement>) => {
     const { clientX, clientY, currentTarget } = e;
     const { width, height, left, top } = currentTarget.getBoundingClientRect();
 
@@ -61,19 +64,13 @@ const Hero = () => {
       className="relative flex min-h-screen items-center pt-16 md:pt-20 xl:px-10"
     >
       {/* ANIMATED GRID BACKGROUND */}
-
       <div className="animate-grid-drift animate-grid-wave animate-grid-fade dark:animate-grid-drift-dark dark:animate-grid-wave-dark dark:animate-grid-fade-dark absolute inset-0 z-0 bg-[url('/grid.svg')] opacity-3" />
-
       {/* GRADIENT LIGHT STREAK */}
-
-      <div className="via-primary/60 pointer-events-none absolute top-32 left-0 h-2 w-full bg-gradient-to-r from-transparent to-transparent opacity-80 blur-2xl" />
-
+      <div className="via-primary/60 pointer-events-none absolute top-32 left-0 h-2 w-full bg-linear-to-r from-transparent to-transparent opacity-80 blur-2xl" />
       {/* GLASSMORPHIC OVERLAY */}
-
       <div className="pointer-events-none absolute inset-0 dark:bg-white/4 dark:backdrop-blur-[2px]" />
 
       {/* HERO CONTENT */}
-
       <div className="relative z-10 container mx-auto px-4">
         <div className="grid items-center gap-12 md:grid-cols-2">
           {/* TEXT CONTENT */}
@@ -89,14 +86,14 @@ const Hero = () => {
             </h1>
 
             {/* TYPEWRITER */}
-            <div className="mb-4 hidden rounded-full py-2 lg:block">
+            <div className="mb-4 hidden rounded-full py-2 select-none lg:block">
               <span className="text-foreground text-lg font-semibold">
                 {text}
                 <span className="border-primary ml-1 animate-pulse border-r-2" />
               </span>
             </div>
 
-            <p className="text-muted-foreground text-md mb-8 leading-relaxed md:text-lg xl:text-xl">
+            <p className="text-muted-foreground mb-8 text-base leading-relaxed select-none md:text-lg xl:text-xl">
               Your one-stop partner for intelligent IT Support and cutting-edge
               Digital Services, trusted by businesses seeking reliability,
               innovation, and measurable results.
@@ -118,36 +115,17 @@ const Hero = () => {
                     Get Started
                     <ArrowRight className="transition-smooth ml-2 h-5 w-5 group-hover:translate-x-1" />
                     {/* Glow Trail */}
-                    <span className="absolute inset-0 bg-white opacity-0 blur-xl transition-all group-hover:opacity-20" />
-                  </Button>
-                </a>
-              </motion.div>
-
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.45 }}
-                viewport={{ once: true }}
-              >
-                <a href="#about">
-                  <Button
-                    size="lg"
-                    variant="outline"
-                    className="border-primary text-primary hover:bg-primary hover:text-primary-foreground relative overflow-hidden border-2"
-                  >
-                    Learn More
-                    <span className="bg-primary absolute inset-0 opacity-0 blur-xl transition-all group-hover:opacity-20" />
+                    <span className="absolute inset-0 bg-white opacity-0 blur-xl transition-all group-hover:opacity-40" />
                   </Button>
                 </a>
               </motion.div>
             </div>
           </motion.div>
 
-          {/* ===================================================== */}
           {/* HERO IMAGE WITH MICRO-ANIMATIONS + MOUSE PARALLAX */}
-          {/* ===================================================== */}
+
           <motion.div
-            className="pointer-events-none -z-10 hidden w-full justify-center md:flex xl:w-auto xl:min-w-[40%]"
+            className="pointer-events-none -z-10 hidden w-full justify-center select-none md:flex xl:w-auto xl:min-w-[40%]"
             style={{
               x: springX,
               y: springY,
@@ -176,7 +154,7 @@ const Hero = () => {
               alt="Students studying together"
               height={671}
               width={700}
-              className="h-auto w-3/4 object-contain"
+              className="pointer-events-none h-auto w-3/4 object-contain"
             />
           </motion.div>
         </div>

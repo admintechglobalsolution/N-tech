@@ -1,10 +1,12 @@
 'use client';
+//DO MORE WITH US section
 
 import { motion } from 'motion/react';
 import Image from 'next/image';
 //shadcn Imports
 import { Card } from '@/components/ui/card';
 
+//animation variants
 const fadeIn = {
   hidden: { opacity: 0, y: 20 },
   show: (delay = 0) => ({
@@ -14,34 +16,35 @@ const fadeIn = {
   }),
 };
 
-const Features = () => {
-  const features = [
-    {
-      icon: '/assets/services-idea.svg',
-      title: 'Creative Concepts',
-      description:
-        'We will listen to reach out your goals regardless of what you sell. Based on that, we introduce more creative ideas for perfective work.',
-    },
-    {
-      icon: '/assets/girl.svg',
-      title: 'Testing for Perfection',
-      description:
-        'We deal individually with each project. Our design is sharp, clean, and we make sure that it is 99.9% error-free.',
-    },
-    {
-      icon: '/assets/services-p-boy.svg',
-      title: 'Innovative Solutions',
-      description:
-        'N-tech has the best team who is qualified and certified. They are well experienced by providing accurate and timely work.',
-    },
-    {
-      icon: '/assets/cup.jpg',
-      title: 'We are the Best',
-      description:
-        'We proudly say that we are One of the top IT Support and Service Providers with over 100+ employees team work is our key to success.',
-    },
-  ];
+//Main Component
+const features = [
+  {
+    icon: '/assets/features/services-idea.svg',
+    title: 'Creative Concepts',
+    description:
+      'We will listen to reach out your goals regardless of what you sell. Based on that, we introduce more creative ideas for perfective work.',
+  },
+  {
+    icon: '/assets/features/girl.svg',
+    title: 'Testing for Perfection',
+    description:
+      'We deal individually with each project. Our design is sharp, clean, and we make sure that it is 99.9% error-free.',
+  },
+  {
+    icon: '/assets/features/services-p-boy.svg',
+    title: 'Innovative Solutions',
+    description:
+      'N-tech has the best team who is qualified and certified. They are well experienced by providing accurate and timely work.',
+  },
+  {
+    icon: '/assets/features/trophy.svg',
+    title: 'We are the Best',
+    description:
+      'We proudly say that we are One of the top IT Support and Service Providers with over 100+ employees team work is our key to success.',
+  },
+];
 
+const Features = () => {
   return (
     <section
       id="about"
@@ -106,7 +109,7 @@ const Features = () => {
                     </div>
                   </div>
                   <div>
-                    <h3 className="text-md mb-2 font-semibold md:text-lg lg:text-xl">
+                    <h3 className="mb-2 text-base font-semibold md:text-lg lg:text-xl">
                       {feature.title}
                     </h3>
                     <p className="text-muted-foreground text-tiny leading-relaxed md:text-sm">

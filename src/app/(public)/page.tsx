@@ -8,7 +8,7 @@ import WhyChooseUs from '@/components/Pages/Home/WhyChooseUs';
 
 export default function Home() {
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen overflow-clip">
       <Hero />
       <Features />
       <WhyChooseUs />

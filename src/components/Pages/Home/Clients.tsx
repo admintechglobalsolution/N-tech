@@ -3,15 +3,17 @@
 import { motion } from 'motion/react';
 import Image from 'next/image';
 
-export const Clients = () => {
-  const companies = [
-    { id: 'infotek', logo: '/assets/companies/aa.svg' },
-    { id: 'alba', logo: '/assets/companies/alba.svg' },
-    { id: 'ce', logo: '/assets/companies/ce.svg' },
-    { id: 'be', logo: '/assets/companies/be.svg' },
-    { id: 'vibhu', logo: '/assets/companies/vibhu.svg' },
-  ];
+//companies data
+const companies = [
+  { id: 'infotek', logo: '/assets/companies/aa.svg' },
+  { id: 'alba', logo: '/assets/companies/alba.svg' },
+  { id: 'ce', logo: '/assets/companies/ce.svg' },
+  { id: 'be', logo: '/assets/companies/be.svg' },
+  { id: 'vibhu', logo: '/assets/companies/vibhu.svg' },
+];
 
+//Main Clients Component
+export const Clients = () => {
   // Duplicate array for smooth infinite loop
   const logos = [...companies, ...companies];
 

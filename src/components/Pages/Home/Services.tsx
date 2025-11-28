@@ -1,4 +1,5 @@
 'use client';
+//SERVICES SECTION
 
 import { motion } from 'motion/react';
 //icons
@@ -14,6 +15,53 @@ import { Card } from '@/components/ui/card';
 //custom hooks
 import useMediaQuery from '@/hooks/useMediaQuery';
 
+//services data
+const services = [
+  {
+    id: 'web-design',
+    icon: FaCrown,
+    title: 'Web Design',
+    description:
+      'Crafting World-Class Website Designs for Real World Experiences, transforming your ideas into live.',
+  },
+  {
+    id: 'digital-marketing',
+    icon: FaRankingStar,
+    title: 'Digital Marketing',
+    description:
+      'Digital Marketing Service has become an integral demand for every business to make its brand popular.',
+  },
+  {
+    id: 'mobile-application',
+    icon: FaApple,
+    title: 'Mobile Application',
+    description:
+      'Deploying a rich and powerful Mobile App that drives your Mobile Savvy audience with your business',
+  },
+  {
+    id: 'cyber-security',
+    icon: FaEye,
+    title: 'Cyber Security',
+    description:
+      '24/7 security operations to provide seamless protection from known and unknown cyber threats',
+  },
+  {
+    id: 'cloud-service',
+    icon: FaSoundcloud,
+    title: 'Cloud Service',
+    description:
+      'Cloud Services are designed around our customers and delivered on the platform that best meets their needs.',
+  },
+  {
+    id: 'logo-design',
+    icon: FaDragon,
+    title: 'Logo Design',
+    description:
+      'Logo Designing is the start point of any business. Logo design that will stay with your brand for a long time.',
+  },
+];
+
+//animation variants
 const fadeIn = {
   hidden: { opacity: 0, y: 20 },
   show: (delay = 0) => ({
@@ -32,52 +80,11 @@ const staggerParent = {
   },
 };
 
+//Main Component
 const Services = () => {
-  const services = [
-    {
-      id: 'web-design',
-      icon: FaCrown,
-      title: 'Web Design',
-      description:
-        'Crafting World-Class Website Designs for Real World Experiences, transforming your ideas into live.',
-    },
-    {
-      id: 'digital-marketing',
-      icon: FaRankingStar,
-      title: 'Digital Marketing',
-      description:
-        'Digital Marketing Service has become an integral demand for every business to make its brand popular.',
-    },
-    {
-      id: 'mobile-application',
-      icon: FaApple,
-      title: 'Mobile Application',
-      description:
-        'Deploying a rich and powerful Mobile App that drives your Mobile Savvy audience with your business',
-    },
-    {
-      id: 'cyber-security',
-      icon: FaEye,
-      title: 'Cyber Security',
-      description:
-        '24/7 security operations to provide seamless protection from known and unknown cyber threats',
-    },
-    {
-      id: 'cloud-service',
-      icon: FaSoundcloud,
-      title: 'Cloud Service',
-      description:
-        'Cloud Services are designed around our customers and delivered on the platform that best meets their needs.',
-    },
-    {
-      id: 'logo-design',
-      icon: FaDragon,
-      title: 'Logo Design',
-      description:
-        'Logo Designing is the start point of any business. Logo design that will stay with your brand for a long time.',
-    },
-  ];
+  //responsive check
   const isMobile = useMediaQuery(768);
+
   return (
     <section
       id="services"
@@ -86,7 +93,7 @@ const Services = () => {
       <div className="container mx-auto px-4">
         {/* Title */}
         <motion.div
-          className="mb-6 text-center md:mb-10 lg:mb-16"
+          className="mb-2 text-center lg:mb-6"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, ease: 'easeOut' }}
@@ -108,15 +115,15 @@ const Services = () => {
           {services.map((service) => (
             <motion.div key={service.id} variants={fadeIn}>
               <div className="relative mx-6 h-full pt-12 transition-all hover:-translate-y-2">
-                <div className="text-primary absolute top-8 left-1/2 flex h-16 w-16 -translate-x-1/2 items-center justify-center rounded-2xl bg-white shadow-md">
-                  <service.icon className="h-8 w-8" />
+                <div className="text-primary bg-card absolute top-8 left-1/2 flex size-20 -translate-x-1/2 items-center justify-center rounded-2xl shadow-md">
+                  <service.icon className="size-10" />
                 </div>
 
-                <Card className="group h-full rounded-4xl border-0 bg-white p-8 pt-16 shadow-lg">
-                  <h3 className="text-center text-lg font-semibold text-gray-900 md:text-xl xl:mb-4 xl:text-3xl">
+                <Card className="group h-full gap-2 rounded-4xl border-0 p-4 pt-20 shadow-lg">
+                  <h3 className="text-center text-lg font-semibold md:text-xl xl:mb-4 xl:text-2xl">
                     {service.title}
                   </h3>
-                  <p className="md:text-md mx-auto max-w-xs text-center text-xs leading-relaxed text-gray-500 xl:text-xl">
+                  <p className="mx-auto max-w-xs text-center text-xs leading-relaxed md:text-base">
                     {service.description}
                   </p>
                 </Card>
