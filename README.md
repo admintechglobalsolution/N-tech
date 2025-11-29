@@ -109,10 +109,7 @@ Biome ensures consistent style and fast CI checks.
 
 ## 📤 Deployment
 
-Best deployed on **Vercel** — just set the required env variables for email.
-Alternative deployments supported anywhere with Node.js.
-
----
+Create .github\workflows\deploy.yaml
 
 ## 🤝 Contributing
 
