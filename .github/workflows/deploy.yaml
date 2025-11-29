@@ -42,4 +42,5 @@ jobs:
           protocol: ftp
           port: 21
           local-dir: .next/
-          server-dir: ${{ secrets.FTP_REMOTE_DIR }}
+          server-dir: ${{ secrets.FTP_REMOTE_DIR }} #/public_html/
+
