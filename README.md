@@ -131,7 +131,7 @@ Open an issue for discussions, questions, or improvements.
 By default, contact form messages are sent to:
 
 ```
-admin@ntechglobalsolutions.com
+admin@ntechglobalsolution.com
 ```
 
 Have ideas? Collaboration? Open an issue — we’d love to hear from you!

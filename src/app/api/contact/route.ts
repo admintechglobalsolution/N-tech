@@ -66,7 +66,7 @@ export async function POST(req: Request) {
 
     await transporter.sendMail({
       from: `"NTech Contact Form" <${process.env.SMTP_USER}>`,
-      to: 'admin@ntechglobalsolutions.com',
+      to: 'admin@ntechglobalsolution.com',
       subject: `New Contact Form Submission — ${firstName}`,
       // Attach the logo
       attachments: [
