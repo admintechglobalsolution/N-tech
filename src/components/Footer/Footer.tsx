@@ -1,3 +1,5 @@
+'use client';
+
 const Footer = () => {
   return (
     <footer className="bg-foreground/5 border-border border-t py-4">

@@ -3,9 +3,13 @@
 ---------------------------- */
 @import 'tailwindcss';
 @import 'tw-animate-css';
+
 @import '../styles/TriangleAnim.css';
 @import '../styles/GridAnim.css';
 
+@plugin 'tailwind-scrollbar' {
+  nocompatible: true;
+}
 /* Enable dark mode using class */
 @custom-variant dark (&:is(.dark *));
 
@@ -150,7 +154,7 @@
 ---------------------------- */
 .dark {
   /* Base surfaces */
-  --background: oklch(0% 0 0);
+  --background: oklch(0 0 0);
   --foreground: oklch(0.962 0 89.876);
 
   --card: oklch(0.228 0.017 264.155);
@@ -194,11 +198,12 @@
   );
 
   /* ----- NEW: Shadows ----- */
-  --shadow-sm: 0px 1px 2px oklch(0 0 0 / 0.35);
+  --shadow-soft: 0px 1px 2px oklch(0 0 0 / 0.35);
 
-  --shadow-md: 0px 2px 6px oklch(0 0 0 / 0.42), 0px 0px 1px oklch(0 0 0 / 0.3);
+  --shadow-medium:
+    0px 2px 6px oklch(0 0 0 / 0.42), 0px 0px 1px oklch(0 0 0 / 0.3);
 
-  --shadow-lg: 0px 12px 32px oklch(0 0 0 / 0.55);
+  --shadow-large: 0px 12px 32px oklch(0 0 0 / 0.55);
 
   /* ----- UPDATED: Charts (dark-mode tuned) ----- */
   --chart-1: oklch(0.72 0.15 247.58); /* brighter primary */
@@ -236,9 +241,14 @@
   }
   body {
     @apply bg-background text-foreground;
+    transition:
+      background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+      border-color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    /* color 0.3s cubic-bezier(0.4, 0, 0.2, 1), */
   }
   html {
     scroll-behavior: smooth;
+    overflow-y: auto;
   }
 }
 
@@ -326,40 +336,10 @@
   }
 }
 
-/* Hide scrollbar for Webkit browsers (Chrome, Safari) */
-.scrollbar-hidden::-webkit-scrollbar {
-  display: none;
-}
-
-/* Hide scrollbar for Firefox */
-.scrollbar-hidden {
-  scrollbar-width: none;
-}
-
-/* Custom thin, minimal scrollbar */
-.custom-scrollbar::-webkit-scrollbar {
-  width: 6px; /* Thin scrollbar */
-}
-
-.custom-scrollbar::-webkit-scrollbar-track {
-  background: transparent; /* No visible track */
-}
-
-.custom-scrollbar::-webkit-scrollbar-thumb {
-  background: #ccc; /* Light gray thumb */
-  border-radius: 10px;
-}
-
-.custom-scrollbar::-webkit-scrollbar-thumb:hover {
-  background: #aaa; /* Slightly darker on hover */
-}
-
-/* For Firefox */
-.custom-scrollbar {
-  scrollbar-width: thin;
-  scrollbar-color: #ccc transparent;
-}
-
 .magneto {
   font-family: var(--font-magneto);
 }
+
+/* ---------------------------
+   END OF FILE
+---------------------------- */
