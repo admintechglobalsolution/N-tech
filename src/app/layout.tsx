@@ -37,7 +37,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${robotoSans.variable} ${robotoMono.variable} ${magneto.variable} antialiased`}
+        className={`${robotoSans.variable} ${robotoMono.variable} ${magneto.variable} scrollbar-track-sky-300 scrollbar-thin scrollbar-hover:scrollbar-thumb-sky-500 scrollbar-active:scrollbar-thumb-sky-400 antialiased`}
       >
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <Toaster position="top-center" richColors />

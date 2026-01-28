@@ -1,0 +1,48 @@
+# GLOBAL LF ENFORCEMENT
+* text=auto eol=lf
+
+# SOURCE FILES
+*.js       text
+*.jsx      text
+*.ts       text
+*.tsx      text
+*.css      text
+*.scss     text
+*.html     text
+*.json     text
+*.md       text
+*.env      text
+*.env.*    text
+*.yml      text
+*.yaml     text
+*.sh       text eol=lf
+
+# LOCK + CONFIG FILES
+package-lock.json  text eol=lf
+yarn.lock          text eol=lf
+pnpm-lock.yaml     text eol=lf
+next.config.js     text
+tsconfig.json      text eol=lf
+
+# NEXTJS + REACT BUILD OUTPUT
+.next/*        -text
+out/*          -text
+build/*        -text
+dist/*         -text
+coverage/*     -text
+
+# STATIC ASSETS
+public/*       -text
+
+# BINARY FILES
+*.png          binary
+*.jpg          binary
+*.jpeg         binary
+*.gif          binary
+*.ico          binary
+*.webp         binary
+*.svg          text   # svg is actually text, not binary
+*.mp4          binary
+*.mp3          binary
+*.zip          binary
+*.pdf          binary
